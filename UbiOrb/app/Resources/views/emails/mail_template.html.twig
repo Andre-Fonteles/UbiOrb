@@ -1,0 +1,18 @@
+<html>
+    <head>
+    	<title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+    	<div style="border-width: 1px; border-style: solid; padding: 10px; padding-bottom: 0px;">
+    		<h2 style="border: solid; border-width: 0px; border-bottom-width: 1px; border-color: #888">
+    			{% trans %}site.title{% endtrans %}
+    		</h2>
+	        {% block content %}{% endblock %}
+	        <p style="padding-top: 5px; border: solid; border-width: 0px; border-top-width: 1px; border-color: #888">
+    			{% trans %}site.title{% endtrans %}
+    		</p>
+    	</div>
+        
+		{% block footer %}{% endblock %}
+    </body>
+</html>

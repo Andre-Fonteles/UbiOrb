@@ -1,0 +1,21 @@
+#sortable {
+	list-style-type: none; 
+	margin: 0px; 
+	padding: 0px; 
+	overflow: auto;
+}
+
+#sortable li { 
+	margin: 3px 3px 3px 0; 
+	padding: 1px; 
+	padding-left: 4px; 
+	padding-right: 4px; 
+	float: left;
+	font-size: 1em; 
+	text-align: center; 
+	cursor: move;
+}
+
+#sortable li > span { 
+	font-size: 12px;
+}

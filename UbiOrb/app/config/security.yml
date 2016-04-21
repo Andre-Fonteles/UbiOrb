@@ -1,0 +1,37 @@
+# app/config/security.yml
+security:
+
+    encoders:
+        AppBundle\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        our_db_provider:
+            entity:
+                class: AppBundle:User
+                property: email
+        
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            
+        default:
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /login_check
+            logout:
+                path:   /logout
+                target: /
+            remember_me:
+                key:      "%secret%"
+                lifetime: 1209600 # 2 weeks in seconds
+                path:     /
+                #secure: true
+            
+    access_control:
+        # require ROLE_USER for /cud (create, update and delete entites)
+        - { path: ^/crud, roles: ROLE_USER }
+        - { path: ^/dashboard, roles: ROLE_USER }

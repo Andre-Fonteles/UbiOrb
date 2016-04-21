@@ -1,0 +1,19 @@
+{% extends 'emails/mail_template.html.twig' %}
+{% set fullName = contributeInvitation.inviter.firstName ~ ' ' ~ contributeInvitation.inviter.lastName %}
+{% block title %}{% trans with {'%name%': fullName} %}contributorInivitation.email.subject{% endtrans %}{% endblock %}
+
+{% block content %}
+	<div>
+		<p>
+			{% trans %}label.greetings{% endtrans %} <br/><br/>
+			
+			{% trans with {'%name%': fullName, '%newspaperName%': contributeInvitation.newspaper.name, '%newspaperLink%': contributeInvitation.newspaper.domain ~ '.' ~ basehost } %}contributorInivitation.email.content{% endtrans %} 
+			
+			<blockquote style="font-style: italic; border: solid; border-width: 0px; border-left-width: 4px; border-color: #888; padding-left: 5px;">
+				{{ contributeInvitation.customMessage }}
+			</blockquote>
+			
+			<a href="{{ url('sign_up') }}">{% trans %}contributorInivitation.email.content.join.link{% endtrans %}</a>.
+		</p>
+	</div>
+{% endblock %}

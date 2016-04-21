@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'forms/form_errors.html.twig' %}
+{% form_theme form 'forms/file_widget.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/create-newspaper.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{% trans %}label.createNewspaper{% endtrans %}</h1>
+	
+		{% for flashMessage in app.session.flashbag.get('notice') %}
+			<div class="alert alert-success" role="alert">
+				{{ flashMessage | raw }}
+			</div>
+		{% endfor %}
+	
+		{% if form.vars.valid == false %}
+			<div class="alert alert-danger" role="alert">
+			   	{{ form_errors(form.name) }}
+			   	{% if form.categories.vars.valid == false %}
+			   		<ul><li>{{ 'invalid.category.genericError' | trans({}, 'validators') }}</li></ul>
+				{% endif %}
+				{{ form_errors(form.domain) }}
+		   	</div>
+		{% endif %}
+	
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.name{% endtrans %}">
+				{% trans %}form.label.newspaper.name{% endtrans %}
+			</label>
+		    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.domain{% endtrans %}">
+				{% trans %}form.label.domain{% endtrans %}
+			</label>
+		    <div class="np-domain">
+		    	http://
+		    	{{ form_widget(form.domain, {'attr': {'class': 'form-control domain-field'}}) }}
+		    	{% trans %}form.site.domain{% endtrans %}
+		    </div>
+	    </div>
+	    
+	    <div class="form-group">
+		    <label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.categories{% endtrans %}">
+				{% trans %}form.label.categories{% endtrans %}
+			</label>
+		    <ul class="categories" data-prototype="{{ form_widget(form.categories.vars.prototype.name, {'attr': {'class': 'form-control category-field'}})|e }}">
+		        {# iterate over each existing categories and render its only field: name #}
+		        {% for category in form.categories %}
+		            <li>{{ form_widget(category.name, {'attr': {'class': 'form-control category-field'}}) }}</li>
+		        {% endfor %}
+	    	{{ form_widget(form.categories) }}
+		    </ul>
+	   </div>
+	    
+		<div class="form-group form-buttons">
+			{{ form_widget(form.create, {'attr': {'class': 'red-button'}}) }}
+		</div>
+		
+    {{ form_end(form) }}	
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+	
+		var $collectionHolder;
+	
+		// setup an "add a tag" link
+		var $addTagLink = $('<a href="#">{% trans %}form.label.add{% endtrans %}</a>');
+		var $newLinkLi = $('<li></li>').append($addTagLink);
+	
+		jQuery(document).ready(function() {
+		    // Get the ul that holds the collection of tags
+		    $collectionHolder = $('ul.categories');
+
+		 	// add a delete link to all of the existing tag form li elements
+		    $collectionHolder.find('li').each(function() {
+		        addTagFormDeleteLink($(this));
+		    });
+			
+		    // add the "add a tag" anchor and li to the tags ul
+		    $collectionHolder.append($newLinkLi);
+			
+		    // count the current form inputs we have (e.g. 2), use that as the new
+		    // index when inserting a new item (e.g. 2)
+		    $collectionHolder.data('index', $collectionHolder.find(':input').length);
+	
+		    $addTagLink.on('click', function(e) {
+		        // prevent the link from creating a "#" on the URL
+		        e.preventDefault();
+	
+		        // add a new tag form (see next code block)
+		        addTagForm($collectionHolder, $newLinkLi);
+		    });
+		});
+
+		function addTagForm($collectionHolder, $newLinkLi) {
+		    // Get the data-prototype explained earlier
+		    var prototype = $collectionHolder.data('prototype');
+
+		    // get the new index
+		    var index = $collectionHolder.data('index');
+
+		    // Replace '__name__' in the prototype's HTML to
+		    // instead be a number based on how many items we have
+		    var newForm = prototype.replace(/__name__/g, index);
+
+		    // increase the index with one for the next item
+		    $collectionHolder.data('index', index + 1);
+
+		    // Display the form in the page in an li, before the "Add a tag" link li
+		    var $newFormLi = $('<li></li>').append(newForm);
+		    $newLinkLi.before($newFormLi);
+
+			// add a delete link to the new form
+		    addTagFormDeleteLink($newFormLi);
+
+		    $newFormLi.find('.category-field').focus();
+		}
+
+		function addTagFormDeleteLink($tagFormLi) {
+		    var $removeFormA = $('<a href="#" class="category-tools" href="#"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>');
+		    $tagFormLi.append($removeFormA);
+
+		    $removeFormA.on('click', function(e) {
+		        // prevent the link from creating a "#" on the URL
+		        e.preventDefault();
+
+		        // remove the li for the tag form
+		        $tagFormLi.remove();
+		    });
+		}
+	</script>
+	
+{% endblock %}
+

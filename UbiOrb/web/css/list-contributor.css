@@ -1,0 +1,7 @@
+.user-contributor {
+}
+.user-contributor > span {
+	font-style: italic;
+	display: block;
+	font-size: 13px;
+}

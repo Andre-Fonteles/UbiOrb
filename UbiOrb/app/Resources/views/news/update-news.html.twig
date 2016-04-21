@@ -1,0 +1,130 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'forms/form_errors.html.twig' %}
+{% form_theme form 'forms/file_widget.html.twig' %}
+
+{% block javascript %}
+	<script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/create-news.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{% trans %}label.updateNews{% endtrans %}</h1>
+	
+		{% if form.vars.valid == false %}		
+			<div class="alert alert-danger" role="alert">
+			   	{{ form_errors(form.title) }}
+			   	{{ form_errors(form.resume) }}
+			   	{{ form_errors(form.content) }}
+			   	{{ form_errors(form.tags) }}
+		   	</div>
+		{% endif %}
+	
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.title{% endtrans %}">
+				{% trans %}form.label.title{% endtrans %}
+			</label>
+		    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    <div class="form-group">
+		<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.resume{% endtrans %}">
+			{% trans %}form.label.resume{% endtrans %}
+		</label>
+		    {{ form_widget(form.resume, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    <div class="form-group">
+		<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.newspaper{% endtrans %}">
+			{% trans %}label.newspaper{% endtrans %}
+		</label>
+			<input type="text" class="form-control" readonly="readonly" value="{{ form.vars.value.newspaper.name }}" />
+	    </div>
+	    <div id="categories-div" class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.categories{% endtrans %}">
+				{% trans %}form.label.categories{% endtrans %}
+			</label>
+		    {{ form_widget(form.categories, {'attr': {'class': 'categories-checkbox'}}) }}
+	    </div>
+	    <div class="form-group">
+	    	<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.edit.image{% endtrans %}">
+				{% trans %}form.label.mainPicture{% endtrans %}
+	    	</label> {% trans %}form.label.viewOnly{% endtrans %}
+	    	{% if form.vars.data.figure %}		
+		    	<div class="img-preview img-preview-showing-readonly">
+		    		<img class="img-centered" src="{{ asset(form.vars.data.figure.webPath) }}" />
+		    	</div>
+	    	{% else %}
+		    	<div class="img-preview img-preview-empty-readonly">
+			    	<p>{% trans %}form.label.noImageSelected{% endtrans %}</p>
+		    	</div>
+	    	{% endif %}
+	    </div>
+	    <div class="form-group">
+			<label>
+			    {{ form_widget(form.headline) }}
+				<span data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.headline{% endtrans %}">
+					{% trans %}form.label.headline{% endtrans %}
+				</span>
+			</label>
+	    </div>
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.content{% endtrans %}">
+	    		{% trans %}form.label.content{% endtrans %}
+	    	</label>
+			<textarea id="ckeditor"></textarea>
+		    {{ form_widget(form.content) }}
+	    </div>
+		<div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.tags{% endtrans %}">
+				{% trans %}form.label.tags{% endtrans %}
+			</label>
+			{{ form_widget(form.tags, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	   
+		<div class="form-group form-buttons">
+			{{ form_widget(form.apply, {'attr': {'class': 'red-button'}}) }}
+		</div>
+		
+    {{ form_end(form) }}	
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+
+		// Replace the <textarea> with a CKEditor instance using default configuration.
+		CKEDITOR.replace('ckeditor');
+
+		$(document).ready(function() {
+			CKEDITOR.on('instanceReady', function (e) {
+				//Fix ckeditor style
+				$('.cke_top').css('background','#eee');
+				$('.cke_bottom').css('background','#eee');
+				//Add content from news.
+				CKEDITOR.instances.ckeditor.setData($('#news_content').val());
+			});
+				
+			//Add listeners to fill the hidden field content with the ckeditor content
+			$('#news_apply').click(fillContent);
+
+			if($("#categories-div").find('input[type=checkbox]').length > 0) {
+				$("#categories-div").show();
+			} else {
+				$("#categories-div").hide();
+			}
+		});
+
+		// Fill hidden content field.
+		function fillContent() {
+			var data = CKEDITOR.instances.ckeditor.getData();
+			$('#news_content').val(data);
+		}
+	</script>
+	
+{% endblock %}
+

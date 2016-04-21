@@ -1,0 +1,7 @@
+update_contributor:
+    path: /contributor/update/{id}
+    defaults: { _controller: "AppBundle:DbContributor:updateContributor" }
+    
+delete_contributor:
+    path: /contributor/delete/{id}
+    defaults: { _controller: "AppBundle:DbContributor:deleteContributor" }

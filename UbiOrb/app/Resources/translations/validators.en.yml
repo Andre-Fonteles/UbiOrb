@@ -1,0 +1,30 @@
+not.blank.firstName: Please, enter your first name.
+not.blank.lastName: Please, enter your last name.
+not.blank.email: Please, enter your e-mail.
+not.blank.associateInvitation.email: Please, enter the e-mail of the person whom you are inviting.
+not.blank.password: Please, choose your password.
+not.blank.repeatPassword: Please, repeat your password.
+not.blank.domain: Please, choose a domain for your newspaper.
+invalid.domain: The domain must contain letters and numbers only. No special caracter or white space is allowed.
+not.match.password: The password does not match.
+already.registered.email: This email is already registered.
+already.registered.category: You can not create two sections with the same name.
+already.registered.newpapper.name: Sorry, but this name has been already taken for another newspaper.
+already.registered.domain: Sorry, but this domain has been already taken.
+min.length.password: The password is too short.
+atLeast.letter.password: The password must contain at least one letter.
+atLeast.digit.password: The password must contain at least one digit.
+invalid.email: This is not a value email address.
+invalid.credentials: Invalid credentials.
+notfound.email: Sorry, but we couldn't find a user with that email.
+wrong.password: Your current password is incorrect.
+not.blank.newspaper.name: You must choose a name.
+not.blank.title: You must choose a title.
+not.blank.resume: You must write a small resume.
+not.blank.content: You must enter the content.
+not.blank.tags: Please, enter some tags.
+invalid.imageType: The image must be in a .PNG or .JPG format.
+invalid.fileSize: This file is too large. The maximum size allowed is {{ limit }} {{ suffix }}.
+invalid.fileWidget: 'Error: The image must be <strong>PNG</strong> or <strong>JPG</strong> and the max. size is <strong>7MB</strong>.'
+not.blank.category.name: All sections need a name.
+invalid.category.genericError: Please, make sure all sections have a name and that they are different.

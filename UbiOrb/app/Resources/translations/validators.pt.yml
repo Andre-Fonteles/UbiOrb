@@ -1,0 +1,30 @@
+not.blank.firstName: Por favor, digite seu nome.
+not.blank.lastName: Por favor, digite seu sobrenome.
+not.blank.email: Por favor, digite seu email.
+not.blank.associateInvitation.email: Por favor, digite o email da pessoa a quem você esta convidando.
+not.blank.password: Por favor, escolha uma senha.
+not.blank.repeatPassword: Por favor, repita a senha.
+not.blank.domain: Por favor, escolha um domínio para o site.
+invalid.domain: O domínio deve conter apenas letras e numéros. Espaços em branco, letras como o "ç" e acentuações não são permitidos.
+not.match.password: As senhas não coincidem.
+already.registered.email: Este email já está registrado.
+already.registered.category: Você não pode criar duas seções com o mesmo nome.
+already.registered.newpapper.name: Desculpe, mas já existe um site de notícias com esse nome.
+already.registered.domain: Desculpe, mas o domínio escolhido já pertence a outro site.
+min.length.password: A senha é muito curta.
+atLeast.letter.password: A senha deve ter ao menos uma letra.
+atLeast.digit.password: A senha deve ter ao menos um dígito.
+invalid.email: Esse email não é valido.
+invalid.credentials: Credenciais inválidas.
+notfound.email: Desculpe, mas não encontramos um usuário com esse email.
+wrong.password: Sua senha está incorreta.
+not.blank.newspaper.name: Você deve escolher um nome.
+not.blank.title: Você deve escolher um título.
+not.blank.resume: Você deve escrever um pequeno resumo.
+not.blank.content: Você deve escrever a notícia.
+not.blank.tags: Por favor, entre com algumas palavras chaves.
+invalid.imageType: A imagem precisa estar no formato .PNG ou .JPG.
+invalid.fileSize: O arquivo é muito grande. O tamanho máximo permitido é {{ limit }} {{ suffix }}.
+invalid.fileWidget: 'Erro: A imagem precisa ser <strong>PNG</strong> ou <strong>JPG</strong> e ter o tamanho máximo de <strong>7MB</strong>.'
+not.blank.category.name: Todas as seções precisam de um nome.
+invalid.category.genericError: Por favor, assegure-se de que todas as seções possuam nomes e que eles sejam distintos.

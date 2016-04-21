@@ -1,0 +1,7 @@
+home:
+    path: /
+    defaults: { _controller: "AppBundle:Default:home" }
+    
+terms:
+    path: /terms
+    defaults: { _controller: "AppBundle:Default:terms" }

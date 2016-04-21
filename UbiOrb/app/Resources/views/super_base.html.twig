@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block metatags %}{% endblock %}
+        
+        <title>{% block title %}{% trans %}site.title{% endtrans %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}" />
+        
+		{# Bootstrap #}
+        <link href="{{ asset('/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/jquery-ui.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/jquery-ui.structure.min.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/fnpheader.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('/css/general.css') }}" type="text/css" rel="stylesheet" />
+        {% block stylesheets %}{% endblock %}
+        
+        {# jQuery (necessary for Bootstrap's JavaScript plugins) #}
+	    <script src="{{ asset('/js/jquery-2.0.0.min.js') }}"></script>
+		{# Include all compiled plugins (below), or include individual files as needed #}
+	    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+	    <script src="{{ asset('/js/jquery-ui.min.js') }}"></script>
+        {% block javascript %}{% endblock %}
+    
+    	{{ include('components/analytics.html.twig') }}
+    
+    </head>
+    <body>
+	    <div id="fixed_header">
+	    	<div id="fixed_header_content">
+	    		<div id="logo">
+		    		<a href="{{ path('index') }}">
+			    		<img alt="{% trans %}site.title{% endtrans %}" src="{{ asset('img/logo_small.png') }}" width="20px" height="20px" />
+			    		{% trans %}site.title{% endtrans %}
+		    		</a>
+	    		</div>
+	    		
+	    		<div id="menu">
+	    		{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                  <div id="dropdown-menu" class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                  	<span style="font-style: italic; margin-right: 10px">{{ app.user.email }}</span>
+                  	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+				  </div>
+				  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+				    <li role="presentation">
+				    	<a role="menuitem" tabindex="-1" href="{{ path('dashboard') }}">
+				    		{% trans %}label.dashboard{% endtrans %}
+				    	</a>
+				    </li>
+				    <li role="presentation">
+				    	<a role="menuitem" tabindex="-1" href="{{ path('list_news') }}">
+				    		{% trans %}label.myNews{% endtrans %}
+				    	</a>
+				    </li>
+				    <li role="presentation">
+				    	<a role="menuitem" tabindex="-1" href="{{ path('change_password') }}">
+				    		{% trans %}label.changePassword{% endtrans %}
+				    	</a>
+				    </li>
+				    <li role="presentation" class="divider"></li>
+				    <li role="presentation">
+				    	<a role="menuitem" tabindex="-1" href="{{ path('logout') }}">
+				    		{% trans %}label.logout{% endtrans %}
+				    	</a>
+				    </li>
+				  </ul>
+		    		
+				{% else %}
+		    		<a href="{{ path('login') }}">{% trans %}label.signIn{% endtrans %}</a> |
+		    		<a href="{{ path('sign_up') }}">{% trans %}label.createYourNewspaper{% endtrans %}</a>
+				{% endif %}
+	    		</div>
+	    	</div>
+		</div>
+		
+        {% block content %}{% endblock %}
+		
+		{% block footer %}{% endblock %}
+		
+    </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'emails/mail_template.html.twig' %}
+
+{% block title %}{% trans %}confirmation.email.subject{% endtrans %}{% endblock %}
+
+{% block content %}
+	<div>
+		<p>
+			{% trans %}label.greetings{% endtrans %} {{ user.firstName }} <br/>
+			{% trans %}confirmation.email.content{% endtrans %} <br/> <a href="{{ link }}">{% trans %}confirmation.email.content.confirm.link{% endtrans %}</a>.
+		</p>
+		<p>{% trans %}label.email.mistake{% endtrans %}<p>
+	</div>
+{% endblock %}

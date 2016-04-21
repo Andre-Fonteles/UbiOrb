@@ -1,0 +1,164 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'forms/form_errors.html.twig' %}
+{% form_theme form 'forms/file_widget.html.twig' %}
+
+{% block javascript %}
+	<script src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/create-news.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{% trans %}label.publishNews{% endtrans %}</h1>
+	
+		{% if form.vars.valid == false %}		
+			<div class="alert alert-danger" role="alert">
+			   	{{ form_errors(form.title) }}
+			   	{{ form_errors(form.resume) }}
+			   	{{ form_errors(form.content) }}
+			   	{{ form_errors(form.tags) }}
+		    	{{ form_errors(form.figure.file) }}
+		   	</div>
+		{% endif %}
+	
+		<div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.title{% endtrans %}">
+				{% trans %}form.label.title{% endtrans %}
+			</label>
+		    {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.resume{% endtrans %}">
+				{% trans %}form.label.resume{% endtrans %}
+			</label>
+		    {{ form_widget(form.resume, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.newspaper{% endtrans %}">
+				{% trans %}label.newspaper{% endtrans %}
+			</label>
+		    {{ form_widget(form.newspaper, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    <div id="categories-div" class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.categories{% endtrans %}">
+				{% trans %}form.label.categories{% endtrans %}
+			</label>
+			<span class="categories-loading">Loading...</span>
+		    {{ form_widget(form.categories, {'attr': {'class': 'categories-checkbox'}}) }}
+	    </div>
+	    <div class="form-group">
+		    {{ form_widget(form.figure) }}
+	    </div>
+	    <div class="form-group">
+			<label>
+			    {{ form_widget(form.headline) }}
+				<span data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.headline{% endtrans %}">
+					{% trans %}form.label.headline{% endtrans %}
+				</span>
+			</label>
+	    </div>
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.content{% endtrans %}">
+	    		{% trans %}form.label.content{% endtrans %}
+	    	</label>
+			<textarea id="ckeditor"></textarea>
+		    {{ form_widget(form.content) }}
+	    </div>
+		<div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.news.tags{% endtrans %}">
+				{% trans %}form.label.tags{% endtrans %}
+			</label>
+			{{ form_widget(form.tags, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	   
+		<div class="form-group form-buttons">
+			{{ form_widget(form.publish, {'attr': {'class': 'red-button'}}) }}
+		</div>
+		
+    {{ form_end(form) }}	
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+	
+		// Replace the <textarea> with a CKEditor instance using default configuration.
+		CKEDITOR.replace('ckeditor');
+
+		$(document).ready(function() {
+			CKEDITOR.on('instanceReady', function (e) {
+				//Fix ckeditor style
+				$('.cke_top').css('background','#eee');
+				$('.cke_bottom').css('background','#eee');
+				//Add content from news.
+				CKEDITOR.instances.ckeditor.setData($('#news_content').val());
+			});
+
+			if(!isThereCategories()) {
+				$("#categories-div").hide();
+			}
+			
+			//Add listeners to fill the hidden field content with the ckeditor content
+			$('#news_publish').click(fillContent);
+			$("#news_saveDraft").click(fillContent);
+
+			var $newspaper = $('#news_newspaper');
+			// When newspaper gets selected ...
+			$newspaper.change(function() {
+				// ... retrieve the corresponding form.
+				var $form = $(this).closest('form');
+				// Simulate form data, but only include the selected newspaper value.
+				var data = {};
+
+				data[$newspaper.attr('name')] = $newspaper.val();
+				// Submit data via AJAX to the form's action path.
+				
+				$('.categories-checkbox').hide();
+
+				$('.categories-loading').css('display', 'block');
+				$('.categories-loading').show();
+								
+				$.ajax({
+					url : $form.attr('action'),
+					type: $form.attr('method'),
+					data : data,
+					success: function(html) {
+						// Replace current categories field ...
+						$('#news_categories').replaceWith(
+							// ... with the returned one from the AJAX response.
+							$(html).find('#news_categories')
+						);
+						
+						if(isThereCategories()) {
+							$("#categories-div").show();
+						} else {
+							$("#categories-div").hide();
+						}
+						
+						$('.categories-checkbox').show();
+						$('.categories-loading').hide();
+
+					}
+				});
+			});
+		});
+
+		// Fill hidden content field.
+		function fillContent() {
+			var data = CKEDITOR.instances.ckeditor.getData();
+			$('#news_content').val(data);
+		}
+
+		function isThereCategories() {
+			return $("#categories-div").find('input[type=checkbox]').length > 0;
+		}
+	</script>
+	
+{% endblock %}
+

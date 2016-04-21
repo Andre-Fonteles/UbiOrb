@@ -1,0 +1,25 @@
+.category-tools {
+	position: relative;
+	top: 1px;
+	padding: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+    color: #888;
+}
+.domain-field {
+	width: 250px;
+	display: inline;
+}
+.category-field {
+	width: 200px;
+	display: inline;
+}
+.np-domain {
+	font-style: italic;	
+}
+.view-only-categories {
+	display: inline; 
+	padding-right: 10px; 
+	font-style: italic;
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/list-contributor.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{{ form.vars.data.newspaper.name }} - {% trans %}label.updateContributor{% endtrans %}</h1>
+	    
+	    <div class="form-group">
+			<label>{% trans %}label.contributor{% endtrans %}</label>
+			<div class="white-box">
+				{{ include('components/list-item-contributor.html.twig', { 'contributor': form.vars.data }) }}
+			</div>
+		</div>
+			
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.inviteContributor.role{% endtrans %}">
+				{% trans %}form.label.role{% endtrans %}
+			</label>
+		    {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	   
+		<div class="form-group form-buttons">
+			{{ form_widget(form.apply, {'attr': {'class': 'red-button'}}) }}
+			<a href="{{ path('dashboard_admin_contributors', { 'id': form.vars.data.newspaper.id }) }}" class="gray-button" style="float: right">{% trans %}label.back{% endtrans %}</a>
+		</div>
+		
+    {{ form_end(form) }}	
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+	</script>
+	
+{% endblock %}
+

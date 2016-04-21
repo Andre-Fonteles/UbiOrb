@@ -1,0 +1,151 @@
+site.title: UbiOrb.com
+form.label.firstName: Nome
+form.label.lastName: Sobrenome
+form.label.name: Nome
+form.label.newspaper.name: Nome do jornal
+form.label.user: Usuário
+form.label.domain: Domínio
+form.label.email: Email
+form.label.password: Senha
+form.label.repeatPassword: Repita senha
+label.signUp: Registrar
+label.createYourNewspaper: Crie seu Jornal
+form.label.termsAcknoledgement: Ao clicar em registrar, você concorda com nossos Termos de Uso nossa Política de Privacidade, incluíndo o uso de Cookies.
+be.reporter: Faça parte do UbiOrb.
+be.reporter.subtitle: Publique notícias do seu jeito.
+confirmation.email.subject: 'UbiOrb: Bem-vindo(a)!'
+label.greetings: Olá,
+confirmation.email.content: 'Seja bem-vindo(a) ao UbiOrb, com ele você poderá criar ou colaborar com sites de notícias e publicar notícias de acordo com o seu ponto de vista. Por favor, acesse o link a seguir para confirmar seu email e ter acesso completo ao site:'
+confirmation.email.content.confirm.link: Confirmar email
+label.email.mistake: Se isso é um engano, por favor, apenas ignore este email.
+welcome.content: Seu email foi confirmado. Continue para acessar o site.
+checkEmailConfirmation.content: 'Aqui você poderá criar ou colaborar com sites de notícias e, o mais importante, publicá-las da forma que você pensa ser justo.'
+checkEmailConfirmation.spam: Se você não receber um email de 1 a 2 minutos, por favor, verifique o filtro de spam (junk) de seu email.
+label.signIn: Entrar
+label.logout: Sair
+form.label.rememberMe: Permanecer conectado
+form.label.lostPassword: Perdeu sua senha?
+form.label.getNewPassword: Obtenha uma nova senha
+form.label.recoverPassword.step1: Entre com o seu email
+form.label.recoverPassword.step2: Espere os detalhes serem enviados
+form.label.recoverPassword.step3: Siga as instruções finais
+checkEmailConfirmation.title: Obrigado por se registrar!
+welcome.title: Parabéns!
+label.continue: Continuar
+resetPassword.mail.subject: 'UbiOrb: recuperação de conta'
+resetPassword.mail.content1: Não lembra mais sua senha no UbiOrb?
+resetPassword.mail.content2: 'Acesse o link a seguir para obter uma nova senha:'
+checkEmailReset.title: Um email foi enviado!
+checkEmailReset.content: Por favor, verifique o email a seguir para recuperar sua conta
+form.label.resetPassword.instruction: Entre com sua nova senha
+form.label.resetPassword: Mudar senha
+form.label.newPassword: Nova senha
+form.label.repeatNewPassword: Repita sua nova senha
+form.label.currentPassword: Senha atual
+label.changePassword: Mudar senha
+changePasswordSuccess.title: Sua senha foi alterada!
+changePasswordSuccess.content: Voltar para o site.
+label.news: Notícia
+label.publishNews: Publicar notícia
+label.myNews: Minhas notícias
+label.updateNews: Editar notícia
+label.deleteNews: Apagar notícia
+form.label.title: Título
+form.label.resume: Resumo
+form.label.headline: Manchete
+form.label.content: Conteúdo
+form.label.tags: Palavras chaves
+form.label.numberOfViews: Visualizações
+label.overview: Notícia
+form.label.publish: Publicar
+form.label.apply: Aplicar
+form.label.delete: Apagar
+form.label.update: Editar
+form.label.quit: Sair
+form.label.mainPicture: Imagem
+form.label.viewOnly: (somente leitura)
+form.label.draftSaved: Rascunho salvo.
+form.label.selectImage: Enviar imagem
+form.label.noImageSelected: Nenhuma imagem selecionada
+form.label.removeImage: Remover imagem
+form.label.confirmDeleteNews: Tem certeza que deseja <strong>apagar permanentemente</strong> esta notícia?
+label.yes: Sim
+label.no: Não
+label.back: Voltar
+label.success.updateNews: Sua notícia foi atualizada.
+label.success.deleteNews: Sua notícia foi apagada.
+label.by: Por
+form.label.category: Seção
+form.label.categories: Seções
+form.label.orderCategories: Ordenar Seções
+label.createNewspaper: Crie um Site de Notícias
+form.label.create: Criar
+form.label.add: Adicionar
+form.site.domain: .ubiorb.com
+newspaper.link.home: Principal
+newspaper.link.allNews: Todas as Notícias
+label.newspaper: Site de Notícias
+label.newspapers: Sites de Noícias
+label.loading: Carregando...
+label.noPublishedNews: Desculpe, nenhuma notícia foi publicada até agora.
+label.inviteContributor: Convidar colaborador
+form.label.useCustomMessage: Usar mensagem personalizada
+label.inviteContributor.instruction: Convide alguém para colaborar publicando notícias no seu jornal.
+form.label.role: Papel
+form.label.journalist: Jornalista
+form.label.admin: Administrador
+contributorInivitation.email.subject: 'UbiOrb: %name% quer que você na equipe de seu site de notícias.'
+contributorInivitation.email.content: '%name% convidou você para fazer parteda equipe do site de notícias <a href="%newspaperLink%">%newspaperName%</a>. Aceite o convite e você poderá contribuir publicando notícias independentes.'
+contributorInivitation.email.content.join.link: Participar
+label.youHaveBeenInvited: 'Você foi convidade para ser <b><em>%role%</em></b> no site de notícias <b><a target="blank" href="http://%newspaperLink%">%newspaperName%</a></b>.'
+label.accept: Aceitar
+label.refuse: Recusar
+label.alreadyContributor: Essa pessoa já faz parte da equipe do site.
+label.adminContributors: Equipe
+label.updateContributor: Editar Papel
+label.success.inivtationSent: Um convite foi enviado para <b>%email%</b>.
+label.dashboard.welcome: Bem-vindo, %name%!
+label.dashboard: Painel
+label.contributor: Membro
+label.success.updateContributor: O papel do usuário <b>%email%</b> foi atualizado <b>updated</b>.
+label.success.deleteContributor: O usuário <b>%email%</b> não faz mais parte da equipe.
+label.quitNewspaper: Abandonar Site de Notícias
+label.listNews: Listar Notícias
+label.updateNewspaper: Editar Site de Notícias
+label.success.updateNewspaper: O site <b>%newspaperName%</b> foi atualizado.
+label.success.updateCategoryOrder: A ordem das seções do site <b>%newspaperName%</b> foi atualizada.
+label.success.deleteNewspaper: O site de notícias <b>%newspaperName%</b> foi apagado.
+form.label.confirmDeleteNewspaper: Você tem certeza que deseja <strong>apagar permanentemente</strong> este site de notícias? Essa ação é <b>irreversível</b> e todas <b> as notícias do jornal serão perdidas</b>.
+label.success.quitNewspaper: Você não faz mais parte da equipe do <b>%newspaperName%</b>.
+label.deleteNewspaper: Apagar Site de Notícias
+label.quitNewspaper: Abandonar Site de Notícias
+form.label.confirmQuitNewspaper: Você tem certeza que deseja abandonar o site de notícias?
+label.aboutUs: Sobre nós
+label.contact: Contato
+label.newsWebsiteOn: Site de Notícias criado em <a href="http://UbiOrb.com">UbiOrb</a>
+label.noNewspapers: Crie um site e comece a publicar notícias!
+
+label.cover.createNews: Crie seu Site de Notícias
+label.cover.about: Você está insatisfeito com a forma como os grandes jornais têm publicado notícias? UbiOrb permite que você crie seu próprio site de notícias e publique-as da sua maneira.
+
+#Tooltip messages
+tooltip.newspaper.name: O nome do seu site de notícias.
+tooltip.newspaper.domain: 'O endereço que será utilizado para que pessoas acessem diretamente seu site. Por exemplo, se você escolhesse ''meujornal'' seu domínio seria http://meujornal.ubiorb.com'
+tooltip.newspaper.categories: Uma notícia pode ser publicada em diferentes seções, por exemplo: política, esportes, ...).
+tooltip.newspaper.orderCategories: Arraste e solte as seções abaixo para reordená-las.
+tooltip.inviteContributor.email: Entre com o email da pessoa para convidar.
+tooltip.inviteContributor.role: Um jornalista pode publicar notícias e editar ou apagar notícias que ele mesmo tenha publicado. Administradores possuem todos os mesmo privilégios, além de poderem apagar notícias de outros, convidar novos colaboradores e alterar configurações diversas do site.
+tooltip.inviteContributor.customMessage: Envie uma mensagem personalizada para esta pessoa.
+tooltip.news.title: O título da notícia.
+tooltip.news.resume: Um pequeno texto que aparececerá junto ao título.
+tooltip.news.newspaper: O site em que a notícia será publicada.
+tooltip.news.headline: Uma manchete tem destaque no site até que outra manchete a substitua.
+tooltip.news.content: Aqui vai a notícia em si.
+tooltip.news.tags: 'Palavras chaves são termos fortemente relacionados à notícia. Por exemplo, uma notícia sobre uma corrida de carros poderia ter as palavras chaves: corrida, carros e autoesporte.'
+tooltip.news.edit.image: A imagem da notícia não pode ser alterada.
+
+label.termsTitle: Termos de Uso
+label.termsOfUse: 'The use of this website is subject to the following terms of use: <br><br> - The content of the pages of this website is for your general information and use only. It is subject to change without notice. <br><br> - This website uses cookies to monitor browsing preferences. <br><br> - Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law. <br><br> - Any material published by you in this website must not contain any hateful, pornographic, obscene, or otherwise illegal material. <br><br> - If you post any material (i.e. "Content") to this Website, you are entirely responsible for the content of, and any harm resulting from, that Content. That is the case regardless of what form the Content takes, which includes, but is not limited to text, photo, video, audio, or code. By making Content available, you represent and warrant that your content does not violate the law by any means. <br><br> - Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements. <br><br> - You also give other UbiOrb.com users permission to share your Content on other UbiOrb.com sites and add their own Content to it, so long as they use only a portion of your post and they give you credit as the original author by linking back to your site. <br><br> - Without limiting any of those representations or warranties, we have the right (though not the obligation) to, in our sole discretion (i) refuse or remove any content that, in our reasonable opinion, violates any policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in our sole discretion. <br><br> - This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited. <br><br> - Advertisements. We reserve the right to display advertisements on your website.'
+
+label.privacyTitle: Política de Privacidade
+label.privacyPolicy: 'This privacy policy sets out how UbiOrb.com uses and protects any information that you give us when you use this website. <br><br> UbiOrb.com is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement. We require this information to understand your needs and provide you with a better service, and in particular for the following reasons: (i) internal record keeping; (ii) we may periodically send e mail about information concerning this website that we think may interest you; (iii) we may also use this information to contact you for market research purpose. <br><br> We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. <br><br> This website uses cookies. You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website. <br><br> Third party vendors, including Google, use cookies to serve ads based on a user''s prior visits to your website. <br><br> Google''s use of the DoubleClick cookie enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. <br><br> Users may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting <a href="http://www.google.com/ads/preferences/">Ads Settings</a>. <br><br> We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so.'

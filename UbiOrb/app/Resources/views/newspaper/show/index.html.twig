@@ -1,0 +1,176 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/newspaper.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}{{ newspaper.name }}{% endblock %}
+
+{% block body %}
+
+    {# Newspaper Title #}
+	<div class="row">
+		<h1 class="np-title">
+			<a href="{{ path('show_newspaper', { 'category': category, 'subdomain' : newspaper.domain }) }}">
+				{% if category is null %}
+					{{ newspaper.name }}
+				{% else %}
+					<span>{{ newspaper.name }}</span>{{ category }}
+				{% endif %}
+			</a>
+		</h1>
+	</div>
+	
+	{# Menu #}
+	<div class="np-bottom-border np-menu">
+		{# Render home link #}
+			{% if category is null %}
+				<a class="menu-link menu-link-active" href="{{ path('show_newspaper', { 'subdomain' : newspaper.domain }) }}">{% trans %}newspaper.link.home{% endtrans %}</a>
+			{% else %}
+				<a class="menu-link" href="{{ path('show_newspaper', { 'subdomain' : newspaper.domain }) }}">{% trans %}newspaper.link.home{% endtrans %}</a>
+			{% endif %}
+		
+		{# Render all categories link #}
+		{% for c in newspaper.categories %}
+			{% if c.name == category %}
+					<a class="menu-link menu-link-active" href="{{ path('show_newspaper', { 'category': c.name, 'subdomain' : newspaper.domain }) }}">
+						{{ c.name }}
+					</a>
+			{% else %}
+				<a class="menu-link" href="{{ path('show_newspaper', { 'category': c.name, 'subdomain' : newspaper.domain }) }}">
+					{{ c.name }}
+				</a>
+			{% endif %}
+		{% endfor %}
+		<a class="menu-link" href="{{ path('all_news', { 'subdomain' : newspaper.domain }) }}">{% trans %}newspaper.link.allNews{% endtrans %}</a>
+	</div>
+	
+	{# Content #}
+	<div style="padding-top: 10px;">
+		{% if headlineNews is not null %}
+			<div class="row">
+				<div class="col-sm-9">
+					{# Headline div #}
+						<div class="np-bottom-border np-tile np-headline">
+							
+							{% if headlineNews.figure is not null %}
+								<a href="{{ path('show_news', { 'id': headlineNews.id, 'slug' : headlineNews.slugTitle, 'subdomain' : newspaper.domain }) }}">
+									<div class="np-img-container">
+										{% if headlineNews.figure.isLandscape %}
+											<img class="np-img-landscape" src="{{ asset(headlineNews.figure.webPath) }}" >
+										{% else %}
+											<img class="np-img-portrait" src="{{ asset(headlineNews.figure.webPath) }}" >
+										{% endif %}
+									</div>
+								</a>
+							{% endif %}
+							
+							<a href="{{ path('show_news', { 'id': headlineNews.id, 'slug' : headlineNews.slugTitle, 'subdomain' : newspaper.domain }) }}">
+								<h1>
+									{{ headlineNews.title }}
+								</h1>
+							</a>
+							
+							<p class="np-author-label">
+								{% trans %}label.by{% endtrans %} {{ headlineNews.author.firstName | upper }} {{ headlineNews.author.lastName | upper }} 
+							<p>
+							
+							<div class="np-headline-resume">
+								<p>{{ headlineNews.resume }}</p>
+							</div>
+							
+						</div>
+					
+					<div class="row">
+						{# Latest news #}
+						<div class="col-md-4">
+							{% for news in regularNews %}
+								<div class="np-bottom-border np-tile np-regular-news">
+									
+									<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+										<h1>
+											{{ news.title }}
+										</h1>
+									</a>
+									
+									<p class="np-author-label">
+										{% trans %}label.by{% endtrans %} {{ news.author.firstName | upper }} {{ news.author.lastName | upper }} 
+									<p>
+									
+									{% if news.figure is not null %}
+										<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+											<div class="np-img-container">
+												{% if news.figure.isLandscape %}
+													<img class="np-img-landscape" src="{{ asset(news.figure.webPath) }}" >
+												{% else %}
+													<img class="np-img-portrait" src="{{ asset(news.figure.webPath) }}" >
+												{% endif %}
+											</div>
+										</a>
+									{% endif %}
+									
+									<div class="np-regular-news-resume">
+										<p>{{ news.resume }}</p>
+									</div>
+								</div>
+							{% endfor %}							
+								
+						</div>
+						{# Latest headlines #}
+						<div class="col-md-8 np-left-border np-right-border">
+							{% for news in olderHealdineNews %}
+								<div class="np-bottom-border np-tile np-old-headline">
+									
+									{% if news.figure is not null %}
+										<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+											<div class="np-img-container">
+												{% if news.figure.isLandscape %}
+													<img class="np-img-landscape" src="{{ asset(news.figure.webPath) }}" >
+												{% else %}
+													<img class="np-img-portrait" src="{{ asset(news.figure.webPath) }}" >
+												{% endif %}
+											</div>
+										</a>
+									{% endif %}
+	
+									<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+										<h1>
+											{{ news.title }}
+										</h1>
+									</a>
+			
+									<p class="np-author-label">
+										{% trans %}label.by{% endtrans %} {{ news.author.firstName | upper }} {{ news.author.lastName | upper }} 
+									<p>
+									
+									<div class="np-old-headline-resume">
+										<p>{{ news.resume }}</p>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+					
+				</div>
+				{# Other contents #}
+				<div class="col-sm-3">
+				</div>
+			</div>
+		{% else %}
+			<div class="col-sm-12">
+				<p class="no-news-message">{% trans %}label.noPublishedNews{% endtrans %}</p>
+			</div>
+		{% endif %}
+	</div>
+	
+{% endblock %}
+
+{% block footer %}
+	<footer class="np-footer">
+		<p>
+			<span style="font-style:italic;">http://{{ newspaper.domain }}{% trans %}form.site.domain{% endtrans %}<span>
+			</br>
+			{% trans %}label.newsWebsiteOn{% endtrans %}</span>
+		</p>
+	</footer>
+{% endblock %}

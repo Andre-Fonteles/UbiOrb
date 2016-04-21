@@ -1,0 +1,38 @@
+#login with locale being passed. Avoid bugging when the framework calls login1 automatically without locale.
+login2:
+    path: /login2
+    defaults: { _controller: "AppBundle:Account:login2" }
+  
+sign_up:
+    path: /user/register
+    defaults: { _controller: "AppBundle:Account:signUp" }
+   
+create_account:
+    path: /user/register/create
+    defaults: { _controller: "AppBundle:Account:create" }
+    
+confirm_email:
+    path: /user/confirm/{code}
+    defaults: { _controller: "AppBundle:Account:confirmEmail" }
+    
+lost_password:
+    path: /user/lostpassword
+    defaults: { _controller: "AppBundle:Account:recoverPassword" }
+    
+send_recover_email:
+    path: /user/lostpassword/sendemail
+    defaults: { _controller: "AppBundle:Account:sendRecoverEmail" }
+    
+reset_password:
+    path: user/resetpass/{code}
+    defaults: { _controller: "AppBundle:Account:resetPassword" }
+
+update_password:
+    path: user/updatepass
+    defaults: { _controller: "AppBundle:Account:updatePassword" }
+
+change_password:
+    path: user/changepass
+    defaults: { _controller: "AppBundle:Account:changePassword" }
+
+        

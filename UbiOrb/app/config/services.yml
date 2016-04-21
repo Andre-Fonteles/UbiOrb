@@ -1,0 +1,26 @@
+# app/config/services.yml
+
+services:
+    validator.unique.email_exists:
+        class: AppBundle\Validator\Constraints\EmailExistsValidator
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: validator.constraint_validator, alias: email_exists }
+            
+    email_manager:
+        class: AppBundle\Service\EmailManager
+        arguments: ["@service_container"]
+        prototype: prototype
+
+    thumbnail_generator:
+        class: AppBundle\Service\ThumbnailGenerator
+        prototype: prototype
+        
+    slugfier:
+        class: AppBundle\Service\Slugfier
+        prototype: prototype
+
+    file_type_extension:
+        class: AppBundle\Form\Extension\FileTypeExtension
+        tags:
+            - { name: form.type_extension, alias: file }

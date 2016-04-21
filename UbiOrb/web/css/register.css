@@ -1,0 +1,45 @@
+/* Register form */
+.register-form {
+    margin-top:60px;
+    max-width: 600px;
+    padding: 25px 15px 25px 10px;
+    color: #888;
+}
+.register-form h1 {
+	font: 36px Georgia, "Times New Roman", Times, serif;
+	font-weight: bold; 
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: -10px -15px 30px -10px;;
+    color: #222222;
+}
+.register-form h1>span {
+    display: block;
+    font-size: 11px;
+}
+.error {
+    float: right;
+    position: relative;
+    top: 8px;
+    left: -20px;
+    width: 33%;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+}
+.terms > a{
+	margin-left: 40px;
+    width: 90%;
+    text-align: left;
+    color: #888;
+    text-shadow: 1px 1px 1px #FFF;
+    font: 12px Georgia, "Times New Roman", Times, serif;
+}
+
+.register-form input[type="text"], .register-form input[type="email"], .register-form input[type="password"] {
+/* 	margin-left: 40px; */
+    width: 60%;
+    margin: 0px 0px 0px 40px;
+}
+.register-form button {
+	margin-left: 40px;
+}

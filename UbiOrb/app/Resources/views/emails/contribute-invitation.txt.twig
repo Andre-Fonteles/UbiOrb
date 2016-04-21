@@ -1,0 +1,12 @@
+{% set fullName = contributeInvitation.inviter.firstName ~ ' ' ~ contributeInvitation.inviter.lastName %}
+{% trans %}label.greetings{% endtrans %}
+				
+{% trans with {'%name%': fullName, '%newspaperName%': contributeInvitation.newspaper.name} %}contributorInivitation.email.content{% endtrans %} 
+{% if contributeInvitation.customMessage is not empty %}
+--				
+{{ contributeInvitation.customMessage }}
+--
+{% endif %}
+{% trans %}contributorInivitation.email.content.join.link{% endtrans %} : {{ url('sign_up') }}
+
+{% trans %}site.title{% endtrans %}

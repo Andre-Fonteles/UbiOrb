@@ -1,0 +1,26 @@
+{% extends 'super_base.html.twig' %} 
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/cover.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block content %}
+
+<div class="site-wrapper" style="background-image: url('{{asset('img/cover.jpg')}}');">
+	<div class="site-wrapper-inner">
+		<div class="cover-container">
+
+			<img class="white-bg-logo" alt="{% trans %}site.title{% endtrans %}" src="{{ asset('img/logo-alpha.png') }}" width="140px" height="140px" />
+			
+			<h1 class="cover-heading">{% trans %}label.cover.createNews{% endtrans %}</h1>
+			<p class="lead">{% trans %}label.cover.about{% endtrans %}</p>
+			<p class="lead">
+				<a href="{{ path('sign_up') }}" class="btn btn-lg btn-default">{% trans %}label.createNewspaper{% endtrans %}</a>
+			</p>
+		</div>
+	
+	</div>
+</div>
+
+{% endblock %}

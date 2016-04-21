@@ -1,0 +1,19 @@
+dashboard:
+    path: /dashboard/
+    defaults: { _controller: "AppBundle:Dashboard:index" }
+         
+dashboard_newspaper:
+    path: /dashboard/newspaper/{id}
+    defaults: { _controller: "AppBundle:Dashboard:adminNewspaper" }
+    
+dashboard_admin_contributors:
+    path: /dashboard/newspaper/{id}/admin-contributors
+    defaults: { _controller: "AppBundle:Dashboard:adminContributors" }
+
+dashboard_invite_contributor:
+    path: /dashboard/newspaper/{id}/invite-contributor
+    defaults: { _controller: "AppBundle:Dashboard:inviteContributor" }
+    
+answer_contribute_invitation:
+    path: /dashboard/newspaper/answer_inv/{invitationId}/{answer}
+    defaults: { _controller: "AppBundle:Dashboard:answerContributeInvitation" }

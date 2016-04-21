@@ -1,0 +1,245 @@
+/* Generic grey-box */
+.grey-box {
+    margin-left:auto;
+    margin-right:auto;
+    background: #F7F7F7;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+}
+
+.white-box {
+    margin-left:auto;
+    margin-right:auto;
+    padding: 5px;
+    background: #FEFEFE;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+    border-radius: 3px;
+}
+
+.grey {
+    background: #F7F7F7;
+    text-shadow: 1px 1px 1px #FFF;
+    border:1px solid #E4E4E4;
+}
+
+/* UbiOrb.com generic form */
+.mkp-form {
+    margin-top:10px;
+    padding: 25px 30px 10px 30px;
+    color: #888;
+    overflow: hidden;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+}
+
+.form-buttons {
+	margin-top: 10px;
+	padding-top: 10px;
+    border-top:1px solid #E4E4E4;
+    text-align: left;
+}
+
+.mkp-header {
+	font: 36px Georgia, "Times New Roman", Times, serif;
+	font-weight: bold; 
+    padding: 0px 0px 10px 40px;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: -10px -10px 30px -10px;;
+    color: #222222;
+}
+
+/* Generic errors text */
+.error {
+	color: #C44;
+}
+
+/* Generic message */
+.message  {
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 400px;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    font: 15px Georgia, "Times New Roman", Times, serif;
+}
+.message h1 {
+	font-size: 35px;
+    text-align: center;
+    display: block;
+    border-bottom:1px solid #E4E4E4;
+    margin: 10px -10px 0px -10px;
+    color: #222;
+}
+.message .content {
+    margin: 10px 0px 0px 10px;
+    font: 15px Georgia, "Times New Roman", Times, serif;
+}
+
+/* General form input style */
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+	font: 18px Georgia, "Times New Roman", Times, serif;
+}
+
+textarea {
+	resize: none;
+}
+
+/* Generic gray button */
+.gray-button {
+    background: #aaaaaa;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #6f6978;
+    cursor: pointer;
+    text-decoration: none;
+	font: 15px Georgia, "Times New Roman", Times, serif;
+}
+
+.gray-button:hover {
+    text-decoration: none;
+	background: #a4a4a4;
+    color: #FFF;
+}
+
+/* Generic red button */
+.red-button {
+    background: #E27575;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+    text-decoration: none;
+	font: 15px Georgia, "Times New Roman", Times, serif;
+}
+
+.red-button:hover {
+    text-decoration: none;
+	background: #CF7A7A;
+    color: #FFF;
+}
+
+/* Generic blue button */
+.blue-button {
+    background: #638adb;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #3e5aa4;
+    cursor: pointer;
+    text-decoration: none;
+	font: 15px Georgia, "Times New Roman", Times, serif;
+}
+
+.blue-button:hover {
+    text-decoration: none;
+	background: #5b85d6;
+    color: #FFF;
+}
+
+/* White logo */
+.white-bg-logo {
+	margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Image preview */
+.img-preview {
+	border: 1px;
+	border-style: dashed;
+	height: 180px;
+    width: 320px;
+	cursor: pointer;
+}
+
+.img-centered {
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform:translateY(-50%);
+}
+
+.img-preview p {
+	text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform:translateY(-50%);
+}
+.img-preview p>span {
+	font-size: 10px;
+}
+
+.img-preview.img-preview-empty {
+    background: #ebebeb;
+	border-color: gray;
+}
+
+.img-preview.img-preview-empty:hover {
+	border-color: #666666;
+    background: #e7e7e7;
+    color: #666666;
+}
+
+.img-preview.img-preview-empty:active {
+	border-color: #606060;
+    background: #e4e4e4;
+    color: #606060;
+}
+
+.img-preview.img-preview-showing {
+	border-color: gray;
+    background: #000000;
+}
+
+.img-preview.img-preview-showing:hover {
+	border-color: #666666;
+    background: #303030;
+    color: #666666;
+}
+
+.img-preview.img-preview-showing-readonly {
+	opacity: 0.7;
+    background: black;
+    cursor: default;
+}
+
+.img-preview.img-preview-empty-readonly {
+	opacity: 0.7;
+    background: #e4e4e4;
+    cursor: default;
+}
+
+.img-preview.img-preview-error {
+	color:#a94442;
+	background-color:#f2eeee;
+	border-color:#ebaaaa;
+}
+
+.categories-checkbox {
+}
+
+.categories-checkbox label {
+	font-weight: normal;
+	margin-right: 20px;
+	margin-left: 5px;
+}
+
+.tooltip-inner {
+	text-shadow: none;
+}

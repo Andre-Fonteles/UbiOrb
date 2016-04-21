@@ -1,0 +1,77 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+logout:
+    path:   /logout
+    host:     "%basehost%"
+        
+login:
+    path: /login
+    defaults: { _controller: "AppBundle:Account:login" }
+        
+login_check:
+    path: /login_check
+    defaults: { _controller: "AppBundle:Account:loginCheck" }
+
+index:
+    path: /
+    host:     "%basehost%"
+    defaults: { _controller: "AppBundle:Default:index" }
+
+routing_default:
+    resource: "@AppBundle/config/routing_default.yml"
+    host:     "%basehost%"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"    
+
+routing_account:
+    resource: "@AppBundle/config/routing_account.yml"
+    host:     "%basehost%"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+
+routing_dashboard:
+    resource: "@AppBundle/config/routing_dashboard.yml"
+    host:     "%basehost%"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+    
+routing_db_newspaper:
+    resource: "@AppBundle/config/routing_db_newspaper.yml"
+    host:     "%basehost%"
+    prefix:   /dashboard
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+    
+routing_db_news:
+    resource: "@AppBundle/config/routing_db_news.yml"
+    host:     "%basehost%"
+    prefix:   /dashboard
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+    
+routing_db_contributor:
+    resource: "@AppBundle/config/routing_db_contributor.yml"
+    host:     "%basehost%"
+    prefix:   /dashboard
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+    
+routing_show_newspaper:
+    resource: "@AppBundle/config/routing_show_newspaper.yml"
+    host:     "{subdomain}.%basehost%"
+    prefix:   /{_locale}/
+    requirements:
+        _locale: "%app_locales%"
+        
+newspaper:
+    path: /
+    host:     "{subdomain}.%basehost%"
+    defaults: { _controller: "AppBundle:ShowNewspaper:index" }

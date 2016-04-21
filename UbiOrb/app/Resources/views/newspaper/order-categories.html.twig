@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/create-newspaper.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/categories.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+	<div class="grey-box mkp-form">
+		<h1 class="mkp-header">{{ newspaper.name }} - {% trans %}form.label.orderCategories{% endtrans %}</h1>
+		
+		<div class="form-group">
+		    <label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.newspaper.orderCategories{% endtrans %}">
+				{% trans %}form.label.categories{% endtrans %}
+			</label>
+		
+			<ul id="sortable">
+				{% for category in newspaper.categories %}
+					<li class="ui-state-default panel panel-default" data-id="{{ category.id }}">{{ category.name }}</li>
+				{% endfor %}
+			</ul>
+			
+			<div class="form-buttons">
+				<a href="{{ path('dashboard') }}" class="gray-button" style="float: right">{% trans %}label.back{% endtrans %}</a>
+				<a class="red-button" style="float: left" href="javascript:onApply()">{% trans %}form.label.apply{% endtrans %}</a>
+			</div>
+			
+		</div>
+		
+		
+	</div>
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+	
+		$(function() {
+	    	$("#sortable").sortable();
+	    	$("#sortable").disableSelection();
+	    });
+
+		var postUrl = "{{ path('order_categories', { 'id': newspaper.id }) }}";
+		var orderedCategories = [];
+		var position = 0;
+		
+	    function onApply() {
+	    	orderedCategories = [];
+	    	position = 0;
+	    	
+	    	var orderedCategories = getOrderedCategories();
+	    	submitCategories();
+		}
+		
+		function getOrderedCategories() {
+
+			$('#sortable').find('li').each(function() {
+				var category = new Category();
+				category.id = $(this).data('id');
+				category.name = $(this).text();
+				category.position = position++;
+				
+				orderedCategories[orderedCategories.length] = category;
+			});
+		}
+
+		function submitCategories() {
+			var json = JSON.stringify(orderedCategories);
+
+			$.post( postUrl, { categoriesJson: json }, function(data) {
+				window.open(data, "_self");
+			});
+		}
+		
+		function Category () {
+		    this.id;
+		    this.name;
+		    this.order;
+		}
+		
+	</script>
+	
+{% endblock %}
+

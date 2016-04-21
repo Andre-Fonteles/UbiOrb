@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/register.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box register-form'}}) }}
+		<h1>
+			{% trans %}be.reporter{% endtrans %}
+			<span>{% trans %}be.reporter.subtitle{% endtrans %}</span>
+    	</h1>
+    	
+		<div class="form-group">
+			<div class="form-inline">
+	            {{ form_widget(form.firstName, {'attr': {'class': 'form-control ', 'placeholder': 'form.label.firstName'|trans}}) }} 
+				<span class="error">{{ form_errors(form.firstName) }}</span>
+		    </div>
+	    </div>
+		<div class="form-group">
+            <div class="form-inline">
+		        {{ form_widget(form.lastName, {'attr': {'class': 'form-control', 'placeholder': 'form.label.lastName'|trans}}) }}
+			    <span class="error">{{ form_errors(form.lastName) }}</span>
+		    </div>
+	    </div>
+		<div class="form-group">
+            <div class="form-inline">
+		        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'form.label.email'|trans}}) }}
+			    <span class="error">{{ form_errors(form.email) }}</span>
+		    </div>
+		</div>
+		<div class="form-group">
+            <div class="form-inline">
+		        {{ form_widget(form.password.first, {'attr': {'class': 'form-control', 'placeholder': 'form.label.password'|trans}}) }}
+			    <span class="error">{{ form_errors(form.password.first) }}</span>
+		    </div>
+	    </div>
+		<div class="form-group">
+            <div class="form-inline">
+		        {{ form_widget(form.password.second, {'attr': {'class': 'form-control', 'placeholder': 'form.label.repeatPassword'|trans}}) }}
+			    <span class="error">{{ form_errors(form.password.second) }}</span>
+		    </div>
+		</div>
+		<div class="form-group">
+            {{ form_widget(form.Register, {'attr': {'class': 'red-button'}}) }}
+		    <br/><br/>
+		    <div class="terms">
+		    	<a href="#" onclick="window.open('{{ path('terms') }}', 'mywin', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;">{% trans %}form.label.termsAcknoledgement{% endtrans %}</a>
+		    </div>
+		</div>
+    {{ form_end(form) }}
+	
+{% endblock %}

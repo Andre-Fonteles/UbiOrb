@@ -1,0 +1,62 @@
+/* Login form */
+.login-form {
+    margin-top:10px;
+    max-width: 300px;
+    padding: 25px 30px 25px 20px;
+    color: #888;
+    overflow: hidden;
+    font: 18px Georgia, "Times New Roman", Times, serif;
+}
+/* .login-form h1 { */
+/*     font-size: 25px; */
+/*     padding: 0px 0px 10px 10px; */
+/*     display: block; */
+/*     border-bottom:1px solid #E4E4E4; */
+/*     margin: -10px -15px 20px -10px; */
+/*     color: #222222; */
+/* } */
+.login-form label {
+    margin: 0px;
+}
+.login-form input[type="text"], .login-form input[type="email"], .login-form input[type="password"] {
+    width: 100%;
+}
+.login-form .red-button {
+    float: right;
+    position: relative;
+}
+
+.login-form .error {
+	margin-top: 10px;
+    float: right;
+    clear:both;
+    position: relative;
+}
+
+.remember-me {
+	float: left;
+    font: 15px Georgia, "Times New Roman", Times, serif;
+}
+
+.remember-me > input[type="checkbox"]  {
+	margin-right: 4px;
+}
+
+
+.forgotpassword {
+	margin-top: 20px;
+	margin-left:auto;
+    margin-right:auto;
+    max-width: 280px;
+    text-align: right;
+}
+
+.forgotpassword a:link, .forgotpassword a:visited, .forgotpassword a:active {
+	color: #999999;
+	text-decoration: none;
+}
+
+.forgotpassword a:hover {
+	color: #DDAAAA;
+	text-decoration: none;
+}

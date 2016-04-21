@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/newspaper.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/all-news.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/list.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}{{ newspaper.name }}{% endblock %}
+
+{% block body %}
+
+    {# Newspaper Title #}
+	<div class="row">
+		<h1 class="np-title">
+			<a href="{{ path('all_news', { 'subdomain' : newspaper.domain }) }}">
+				<span>{{ newspaper.name }}</span>{% trans %}newspaper.link.allNews{% endtrans %}
+			</a>
+		</h1>
+	</div>
+	
+	{# Menu #}
+	<div style="text-align: center" class="np-bottom-border">
+		{# Render home link #}
+		<a class="menu-link" href="{{ path('show_newspaper', { 'subdomain' : newspaper.domain }) }}">
+			{% trans %}newspaper.link.home{% endtrans %}
+		</a>
+		
+		{# Render all categories link #}
+		{% for c in newspaper.categories %}
+			<a class="menu-link" href="{{ path('show_newspaper', { 'category': c.name, 'subdomain' : newspaper.domain }) }}">
+				{{ c.name }}
+			</a>
+		{% endfor %}
+		
+		{# Render all-news link #}
+		<a class="menu-link menu-link-active" href="{{ path('all_news', { 'subdomain' : newspaper.domain }) }}">
+			{% trans %}newspaper.link.allNews{% endtrans %}
+		</a>
+	</div>
+	
+	{# Content #}
+	<div style="padding-top: 10px;">
+		{% if (newsList is not null) and (newsList is not empty) %}
+			<div class="row">
+				{% for news in newsList %}
+					<div class="col-sm-12">
+						<div class="np-bottom-border np-tile np-regular-news">
+							{% if news.figure is not null %}
+								<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+									<div class="np-img-container">
+										{% if news.figure.isLandscape %}
+											<img class="np-img-landscape" src="{{ asset(news.figure.webPath) }}" >
+										{% else %}
+											<img class="np-img-portrait" src="{{ asset(news.figure.webPath) }}" >
+										{% endif %}
+									</div>
+								</a>
+							{% endif %}
+							
+							<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : newspaper.domain }) }}">
+								<h1>
+									{{ news.title }}
+								</h1>
+							</a>
+							
+							<p class="np-author-label">
+								{% trans %}label.by{% endtrans %} {{ news.author.firstName | upper }} {{ news.author.lastName | upper }} 
+								 -
+								<span>
+									{{ news.publishDate|date("d/m/Y", "Europe/Paris") }}
+								</span>
+							<p>
+							
+							<div class="np-regular-news-resume">
+								<p>{{ news.resume }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="col-sm-12">
+				<p class="no-news-message">{% trans %}label.noPublishedNews{% endtrans %}</p>
+			</div>
+		{% endif %}
+		{{ include('components/pagination.html.twig', { 'route_name': 'all_news', 'params': {'subdomain' : newspaper.domain}, 'offset': offset, 'limit' : limit, 'total' : total }) }}
+	</div>
+	
+	
+{% endblock %}

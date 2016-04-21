@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/login.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	<img class="white-bg-logo" alt="{% trans %}site.title{% endtrans %}" src="{{ asset('img/logo-glow.png') }}" width="140px" height="140px" />
+	
+	<form action="{{ path('login_check') }}" method="post" class="grey-box login-form">
+	
+		<div class="form-group ">
+			<label for="username">{% trans %}form.label.email{% endtrans %}</label>
+		    <input type="text" class="form-control"  id="username" name="_username" value="{{ last_username }}" autofocus/>
+	    </div>
+	    
+		<div class="form-group ">
+	    	<label for="password">{% trans %}form.label.password{% endtrans %}</label>
+		    <input type="password" class="form-control" id="password" name="_password" />
+		</div>
+		
+		<label class="remember-me"><input type="checkbox" id="remember_me" name="_remember_me" />{% trans %}form.label.rememberMe{% endtrans %}</label>
+		
+		<div class="form-group ">	
+    		<button type="submit" class="red-button">{% trans %}label.signIn{% endtrans %}</button>
+	    </div>
+  	    {% if error %}
+	    	<label class="error">{{ 'invalid.credentials' | trans({}, 'validators') }}</label>
+		{% endif %}
+	    
+	</form>
+	
+	<div class="forgotpassword">
+		<a href="{{ path('lost_password') }}">{% trans %}form.label.lostPassword{% endtrans %}</a>
+	</div>
+{% endblock %}

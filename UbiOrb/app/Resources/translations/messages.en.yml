@@ -1,0 +1,153 @@
+site.title: UbiOrb.com
+form.label.firstName: First name
+form.label.lastName: Last name
+form.label.name: Name
+form.label.newspaper.name: Newspaper name
+form.label.user: User
+form.label.domain: Domain
+form.label.email: Email
+form.label.password: Password
+form.label.repeatPassword: Repeat password
+label.signUp: Sign up
+label.createYourNewspaper: Create your Newspaper
+form.label.termsAcknoledgement: By clicking Sign Up, you agree to our Terms and that you have read our Data Policy, including our Cookie Use.
+be.reporter: Join UbiOrb today.
+be.reporter.subtitle: Publish news and Make your own independent online newspaper
+confirmation.email.subject: 'UbiOrb: Welcome!'
+label.greetings: Hello,
+confirmation.email.content: 'Welcome to UbiOrb! Now you are able to create online newspapers, collaborate with existing ones and, most important, publish news the way you think it is meant to be. Please use the following link to confirm your email and have full access to the site:'
+confirmation.email.content.confirm.link: Confirm email address
+label.email.mistake: If this is a mistake, please just ignore this email.
+welcome.content: Your email has been confirmed. Continue to the site.
+checkEmailConfirmation.content: 'Now you are able to create online newspapers, collaborate with existing ones and, most important, publish news the way you think it is meant to be.'
+checkEmailConfirmation.spam: If you do not receive the e-mail within 1 or 2 minutes, consider checking your spam folder.
+label.signIn: Log in
+label.logout: Log out
+form.label.rememberMe: Keep me logged in
+form.label.lostPassword: Lost your password?
+form.label.getNewPassword: Get new password
+form.label.recoverPassword.step1: Enter you email
+form.label.recoverPassword.step2: Wait for the details to be sent
+form.label.recoverPassword.step3: Follow the final instructions
+checkEmailConfirmation.title: Thank you for joining us!
+welcome.title: Congratulations!
+label.continue: Continue
+resetPassword.mail.subject: 'UbiOrb: reset password'
+resetPassword.mail.content1: Someone recently requested your password in UbiOrb to be reset.
+resetPassword.mail.content2: 'To reset your password use this link:'
+checkEmailReset.title: An email has been sent!
+checkEmailReset.content: Please, check the following email to get a new password
+form.label.resetPassword.instruction: Enter your new password below
+form.label.resetPassword: Reset Password
+form.label.newPassword: New password
+form.label.repeatNewPassword: Repeat new password
+form.label.currentPassword: Current password
+label.changePassword: Change password
+label.changePassword: Change password
+changePasswordSuccess.title: Your password has been changed!
+changePasswordSuccess.content: Continue back to the site.
+label.news: News
+label.publishNews: Publish News
+label.myNews: My News
+label.updateNews: Edit News
+label.deleteNews: Delete News
+form.label.title: Title
+form.label.resume: Resume
+form.label.headline: Headline
+form.label.content: Content
+form.label.tags: Tags
+form.label.numberOfViews: Views
+label.overview: Overview
+form.label.publish: Publish
+form.label.apply: Apply
+form.label.delete: Delete
+form.label.update: Edit
+form.label.quit: Quit
+form.label.mainPicture: Image
+form.label.viewOnly: (view only)
+form.label.draftSaved: Draft saved.
+form.label.selectImage: Upload image
+form.label.noImageSelected: No image selected
+form.label.removeImage: Remove image
+form.label.confirmDeleteNews: Are you sure you want to <strong>permantently delete</strong> this news?
+label.yes: Yes
+label.no: No
+label.back: Back
+label.success.updateNews: Your news has been updated.
+label.success.deleteNews: Your news has been deleted.
+label.by: By
+form.label.category: Section
+form.label.categories: Sections
+form.label.orderCategories: Order Sections
+label.createNewspaper: Create an Online Newspaper
+form.label.create: Create
+form.label.add: Add
+form.site.domain: .ubiorb.com
+newspaper.link.home: Home
+newspaper.link.allNews: All News
+label.newspaper: Online Newspaper
+label.newspapers: Online Newspapers
+label.loading: Loading...
+label.noPublishedNews: Sorry, no news has been published here yet.
+label.inviteContributor: Invite Contributor
+form.label.useCustomMessage: Use custom message
+label.inviteContributor.instruction: Invite someone to contribute publishing news in your online newspaper.
+form.label.role: Role
+form.label.journalist: Journalist
+form.label.admin: Administrator
+contributorInivitation.email.subject: 'UbiOrb: %name% wants you to be member of an online newspaper team.'
+contributorInivitation.email.content: '%name% invited you be a member of the <a href="%newspaperLink%">%newspaperName%</a> online newspaper team. Join and you will be able to contribute publishing independent news.'
+contributorInivitation.email.content.join.link: Join Now 
+label.youHaveBeenInvited: 'You have been invited to be <b><em>%role%</em></b> in the <b><a target="blank" href="http://%newspaperLink%">%newspaperName%</a></b> online newspaper.'
+label.accept: Accept
+label.refuse: Refuse
+label.alreadyContributor: This person is already a contributor of this online newspaper.
+label.adminContributors: Team
+label.updateContributor: Edit Role
+label.success.inivtationSent: An invitation has been sent to <b>%email%</b>.
+label.dashboard.welcome: Welcome, %name%!
+label.dashboard: Dashboard
+label.contributor: Member
+label.success.updateContributor: The role of the user <b>%email%</b> has been <b>updated</b>.
+label.success.deleteContributor: The user <b>%email%</b> is no longer part of the team.
+label.quitNewspaper: Quit Newspaper
+label.listNews: List News
+label.updateNewspaper: Edit Online Newspaper
+label.success.updateNewspaper: The <b>%newspaperName%</b> newspaper has been updated.
+label.success.updateCategoryOrder: The order of the sections in <b>%newspaperName%</b> has been updated.
+label.success.deleteNewspaper: The <b>%newspaperName%</b> newspaper has been deleted.
+form.label.confirmDeleteNewspaper: Are you sure you want to <strong>permantently delete</strong> this online newspaper? This action is <b>irreversible</b> and all of its <b>news will be lost</b>.
+label.success.quitNewspaper: You are no longer part of the <b>%newspaperName%</b> newspaper.
+label.deleteNewspaper: Delete Online Newspaper
+label.quitNewspaper: Quit Online Newspaper
+form.label.confirmQuitNewspaper: Are you sure you want to quit this online newspaper?
+label.aboutUs: About us
+label.contact: Contact
+label.newsWebsiteOn: News website on <a href="http://UbiOrb.com">UbiOrb</a>
+label.noNewspapers: Create an online newspaper to start publishing news!
+
+label.cover.createNews: Create your online newspaper for free
+label.cover.about: Are you unsatisfied with the way news are being told in the big newspapers? UbiOrb allows you to freely create your own news website and publish news the way you think it is meant to be.
+
+#Tooltip messages
+tooltip.newspaper.name: The name of your online newspaper.
+tooltip.newspaper.domain: The domain people will use to access your online newspaper. For example, if your enter ''mynewspaper'' your address would be http://mynewspaper.ubiorb.com
+tooltip.newspaper.categories: A news can be published in different sections (e.g., politics, economy).
+tooltip.newspaper.orderCategories: Drag and drop the sections below to reorder them.
+tooltip.inviteContributor.email: Enter the email of the person to invite.
+tooltip.inviteContributor.role: A journalist can only publish tasks and edit/delete what he has published. Administrators have more privilegies being allowed to delete others' news and invite new contributors.
+tooltip.inviteContributor.customMessage: Send a custom message inviting this person.
+tooltip.news.title: The title of the news.
+tooltip.news.resume: A small text to appear together with the title.
+tooltip.news.newspaper: The online newspaper in which the news will be published.
+tooltip.news.headline: A headline news will feature in the online newspaper when first published.
+tooltip.news.content: Here goes the news itself.
+tooltip.news.tags: 'Tags are keywords related to the news. For example, a news about a car race could have as tags: race, cars, autosport'
+tooltip.news.edit.image: The image attached to the news can not be edited.
+
+label.termsTitle: Terms of Use
+label.termsOfUse: 'The use of this website is subject to the following terms of use: <br><br> - The content of the pages of this website is for your general information and use only. It is subject to change without notice. <br><br> - This website uses cookies to monitor browsing preferences. <br><br> - Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law. <br><br> - Any material published by you in this website must not contain any hateful, pornographic, obscene, or otherwise illegal material. <br><br> - If you post any material (i.e. "Content") to this Website, you are entirely responsible for the content of, and any harm resulting from, that Content. That is the case regardless of what form the Content takes, which includes, but is not limited to text, photo, video, audio, or code. By making Content available, you represent and warrant that your content does not violate the law by any means. <br><br> - Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements. <br><br> - You also give other UbiOrb users permission to share your Content on other UbiOrb sites and add their own Content to it, so long as they use only a portion of your post and they give you credit as the original author by linking back to your site. <br><br> - Without limiting any of those representations or warranties, we have the right (though not the obligation) to, in our sole discretion (i) refuse or remove any content that, in our reasonable opinion, violates any policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in our sole discretion. <br><br> - This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited. <br><br> - Advertisements. We reserve the right to display advertisements on your website.'
+
+label.privacyTitle: Privacy Policy
+label.privacyPolicy: 'This privacy policy sets out how UbiOrb.com uses and protects any information that you give us when you use this website. <br><br> UbiOrb.com is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement. We require this information to understand your needs and provide you with a better service, and in particular for the following reasons: (i) internal record keeping; (ii) we may periodically send e mail about information concerning this website that we think may interest you; (iii) we may also use this information to contact you for market research purpose. <br><br> We are committed to ensuring that your information is secure. In order to prevent unauthorised access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online. <br><br> This website uses cookies. You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer. This may prevent you from taking full advantage of the website. <br><br> Third party vendors, including Google, use cookies to serve ads based on a user''s prior visits to your website. <br><br> Google''s use of the DoubleClick cookie enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet. <br><br> Users may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting <a href="http://www.google.com/ads/preferences/">Ads Settings</a>. <br><br> We will not sell, distribute or lease your personal information to third parties unless we have your permission or are required by law to do so.'
+

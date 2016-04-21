@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	
+	<img class="white-bg-logo" alt="{% trans %}site.title{% endtrans %}" src="{{ asset('img/logo-glow.png') }}" width="140px" height="140px" />
+	
+	<div class="grey-box message">
+		<h1>{% trans %}checkEmailReset.title{% endtrans %}</h1>
+		<p class="content">{% trans %}checkEmailReset.content{% endtrans %} <br/> <b>{{ user.email }}</b></p>
+	</div>
+	
+	
+{% endblock %}

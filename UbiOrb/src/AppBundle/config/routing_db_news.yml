@@ -1,0 +1,19 @@
+create_news:
+    path: /news/create/{newspaperId}
+    defaults: { _controller: "AppBundle:DbNews:createNews", newspaperId: null }
+    
+update_news:
+    path: /news/update/{id}
+    defaults: { _controller: "AppBundle:DbNews:updateNews" }
+
+delete_news:
+    path: /news/delete/{id}
+    defaults: { _controller: "AppBundle:DbNews:deleteNews" }
+    
+list_news:
+    path: /news/list/{offset}/{limit}
+    defaults: { _controller: "AppBundle:DbNews:listNews", offset: 0, limit: 5 }
+    
+admin_newspaper_news:
+    path: /newspaper/{newspaperId}/news/list/{offset}/{limit}
+    defaults: { _controller: "AppBundle:DbNews:adminNewspaperNews", offset: 0, limit: 5 }

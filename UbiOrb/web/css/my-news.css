@@ -1,0 +1,37 @@
+/* My News tile */
+.my-news {
+}
+
+.my-news a {
+	text-decoration: none;
+}
+
+.my-news a:hover {
+	text-decoration: none;
+}
+
+.my-news h1 {
+	margin: 0px;
+	color: black;
+	font-size: 32px;
+}
+
+.my-news h1>span {
+	display: block;
+	color: black;
+	font-size: 10px;
+}
+
+/* Image container */
+.image-container {
+	border: 1px;
+	border-color: gray;
+	border-style: solid;
+	height: 60px;
+    width: 105px;
+    background: black;
+    margin-left: 1px;
+    margin-right: 10px;
+    float: left;
+    display: block;
+}

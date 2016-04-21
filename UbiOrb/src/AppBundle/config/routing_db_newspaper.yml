@@ -1,0 +1,19 @@
+create_newspaper:
+    path: /newspaper/create/
+    defaults: { _controller: "AppBundle:DbNewspaper:createNewspaper" }
+    
+update_newspaper:
+    path: /newspaper/update/{id}
+    defaults: { _controller: "AppBundle:DbNewspaper:updateNewspaper" }
+
+order_categories:
+    path: /newspaper/categories/order/{id}
+    defaults: { _controller: "AppBundle:DbNewspaper:orderCategories" }
+    
+delete_newspaper:
+    path: /newspaper/delete/{id}
+    defaults: { _controller: "AppBundle:DbNewspaper:deleteNewspaper" }
+    
+quit_newspaper:
+    path: /newspaper/quit/{id}
+    defaults: { _controller: "AppBundle:DbNewspaper:quitNewspaper" }

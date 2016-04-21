@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'forms/form_errors.html.twig' %}
+{% form_theme form 'forms/file_widget.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/create-newspaper.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{{ newspaper.name }} - {% trans %}label.inviteContributor{% endtrans %}</h1>
+
+		{% set flashArray = app.session.flashbag.get('notice') %}
+		
+		
+		{% if flashArray | length > 0 %}
+			{% for flashMessage in flashArray %}
+				<div class="alert alert-success" role="alert">
+					{{ flashMessage | raw }}
+				</div>
+			{% endfor %}
+		{% elseif form.vars.valid == false %}
+			<div class="alert alert-danger" role="alert">
+			   	{{ form_errors(form.email) }}
+				{{ form_errors(form) }}
+		   	</div>
+	   	{% else %}
+			<div class="alert alert-info" role="alert">
+				{% trans %}label.inviteContributor.instruction{% endtrans %}
+		   	</div>
+		{% endif %}
+	
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.inviteContributor.email{% endtrans %}">
+				{% trans %}form.label.email{% endtrans %}
+			</label>
+		    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+
+	    <div class="form-group">
+			<label data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.inviteContributor.role{% endtrans %}">
+				{% trans %}form.label.role{% endtrans %}
+			</label>
+		    {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+	    </div>
+	    
+	    <div class="form-group categories-checkbox">
+			{% if form.vars.data.customMessage is empty %}
+				<input id="customMessageCB" type="checkbox" /> 
+				<label for="customMessageCB" data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.inviteContributor.customMessage{% endtrans %}">{% trans %}form.label.useCustomMessage{% endtrans %}</label>
+			    {{ form_widget(form.customMessage, {'attr': {'class': 'form-control customMessageTA', 'style': 'display:none'}}) }}
+			{% else %}
+				<input id="customMessageCB" type="checkbox" checked="checked"/> 
+				<label for="customMessageCB" data-toggle="tooltip" data-placement="right" title="{% trans %}tooltip.inviteContributor.customMessage{% endtrans %}">{% trans %}form.label.useCustomMessage{% endtrans %}</label>
+			    {{ form_widget(form.customMessage, {'attr': {'class': 'form-control customMessageTA'}}) }}
+			{% endif %}
+	    </div>
+	    
+		<div class="form-group form-buttons">
+			{{ form_widget(form.invite, {'attr': {'class': 'red-button'}}) }}
+			<a href="{{ path('dashboard_admin_contributors', { 'id': newspaper.id }) }}" class="gray-button" style="float: right">{% trans %}label.back{% endtrans %}</a>
+		</div>
+		
+		
+    {{ form_end(form) }}	
+	
+	<script>
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip();
+		})
+		
+		var customMessageVal = '';
+	
+		$(document).ready(function() {
+	
+			$('#customMessageCB').change(function() {
+				if($(this).is(':checked')) {
+					$('.customMessageTA').show(100);
+					$('.customMessageTA').val(customMessageVal);
+				} else {
+					$('.customMessageTA').hide(100);
+					customMessageVal = $('.customMessageTA').val();
+					$('.customMessageTA').val('');
+				}
+			});
+			
+		});
+	
+	</script>
+	
+{% endblock %}
+

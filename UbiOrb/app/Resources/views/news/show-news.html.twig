@@ -1,0 +1,125 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/newspaper.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/show-news.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}{{ news.title }}{% endblock %}
+
+{% block metatags %}
+	<meta name="description" content="{{ news.resume }}" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ include('components/social-networks-api.html.twig') }}
+	
+	{# Newspaper Title #}
+	<div class="row">
+		<h1 class="np-title">
+			<a href="{{ path('show_newspaper', { 'subdomain' : news.newspaper.domain }) }}">
+				{{ news.newspaper.name }}
+			</a>
+		</h1>
+	</div>
+	
+	{# Menu #}
+	<div style="text-align: center" class="np-bottom-border">
+		{# Render home link #}
+		{% if (category is not defined) or (category is null) %}
+			<a class="menu-link menu-link-active" href="{{ path('show_newspaper', { 'subdomain' : news.newspaper.domain }) }}">{% trans %}newspaper.link.home{% endtrans %}</a>
+		{% else %}
+			<a class="menu-link" href="{{ path('show_newspaper', { 'subdomain' : news.newspaper.domain }) }}">{% trans %}newspaper.link.home{% endtrans %}</a>
+		{% endif %}
+		
+		{# Render all categories link #}
+		{% for c in news.newspaper.categories %}
+			{% if (category is defined) and (c.name == category) %}
+				<a class="menu-link menu-link-active" href="{{ path('show_newspaper', { 'category': c.name, 'subdomain' : news.newspaper.domain }) }}">
+					{{ c.name }}
+				</a>
+			{% else %}
+				<a class="menu-link" href="{{ path('show_newspaper', { 'category': c.name, 'subdomain' : news.newspaper.domain }) }}">
+					{{ c.name }}
+				</a>
+			{% endif %}
+		{% endfor %}
+		<a class="menu-link" href="{{ path('all_news', { 'subdomain' : news.newspaper.domain }) }}">{% trans %}newspaper.link.allNews{% endtrans %}</a>
+	</div>
+	
+	{# Content #}
+	<div style="padding-top: 20px;">
+		<h1 class="mkp-header">{{ news.title }}<span>{{ news.resume }}</span></h1>
+		<p class="author-label">
+			{% trans %}label.by{% endtrans %} {{ news.author.firstName | upper }} {{ news.author.lastName | upper }} 
+			<span>
+				{{ news.publishDate|date("d/m/Y", "Europe/Paris") }}
+			</span>
+			<span>
+				{% trans %} form.label.numberOfViews {% endtrans %}: {{ news.numberOfViews }}
+			</span>
+		</p>
+
+		<div class="row">
+		
+			{# News Content column #}
+			<div class="col-md-8">
+				{% if news.figure is not null %}
+{# 					<div class="news-image-container">#}
+{# 						{% if news.figure.isLandscape %}#}
+{# 							<img class="np-img-landscape" src="{{ asset(news.figure.webPath) }}" >#}
+{# 						{% else %}#}
+{# 							<img class="np-img-portrait" src="{{ asset(news.figure.webPath) }}" >#}
+{# 						{% endif %}#}
+{# 					</div>#}
+
+					<div class="content">
+						<p align="center">
+							<img class="np-img-show-news" src="{{ asset(news.figure.webPath) }}" >
+						</p>
+					</div>
+					
+				{% endif %}
+				
+				<div class="content">
+					{{ news.content | raw }}
+				</div>
+				
+				<div class="share-panel">
+					<div style="float: left; margin-right: 5px">
+						<div style="position: relative; top: 2px;">
+							<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+						</div>
+					</div>
+						<div class="fb-share-button" data-href="{{app.request.uri}}" data-layout="button_count"></div>
+				</div>
+			</div>
+			
+			{# Side column (ads, social board, etc..) #}
+			<div class="col-md-4">
+				{{ include('components/adaptable-ad.html.twig') }}
+			</div>
+			
+			{# Facebook comments #}
+			<div class="col-md-8">
+				<div class="news-comments">
+					<div class="fb-comments" data-href="{{ 'http://' ~ news.newspaper.domain ~ '.' ~ basehost ~ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : news.newspaper.domain, '_locale' : 'en' }) }}" data-numposts="5" data-colorscheme="light"></div>
+				</div>
+			</div>
+			
+			<div class="col-md-4">
+			<div>
+		</div>
+	</div>	
+{% endblock %}
+
+{% block footer %}
+	<footer class="np-footer">
+		<p>
+			{{ news.newspaper.domain }}{% trans %}form.site.domain{% endtrans %}
+			</br>
+			<span class="news-website-on">{% trans %}label.newsWebsiteOn{% endtrans %}</span>
+		</p>
+	</footer>
+{% endblock %}

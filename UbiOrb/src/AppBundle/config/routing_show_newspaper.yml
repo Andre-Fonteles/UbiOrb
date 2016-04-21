@@ -1,0 +1,11 @@
+show_news:
+    path: /news/{id}/{slug}
+    defaults: { _controller: "AppBundle:ShowNewspaper:showNews" }
+    
+show_newspaper:
+    path: /{category}
+    defaults: { _controller: "AppBundle:ShowNewspaper:showNewspaper", category: null }
+    
+all_news:
+    path: /all/news/{offset}/{limit}
+    defaults: { _controller: "AppBundle:ShowNewspaper:listAllNews", offset: 0, limit: 10 }

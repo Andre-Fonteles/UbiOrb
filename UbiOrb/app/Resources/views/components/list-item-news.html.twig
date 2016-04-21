@@ -1,0 +1,17 @@
+<div class="my-news">
+	<a href="{{ path('show_news', { 'id': news.id, 'slug' : news.slugTitle, 'subdomain' : news.newspaper.domain }) }}">
+		<div>
+			{% if news.figure is not null %}
+				<div class="image-container">
+					<img class="img-centered" src="{{ asset(news.figure.webThumbPath) }}" >
+				</div>
+			{% endif %}
+			<h1>
+				{{ news.title }}
+				<p class="np-author-label">
+					{% trans %}label.by{% endtrans %} {{ news.author.firstName | upper }} {{ news.author.lastName | upper }} 
+				</p>
+				<span>{{ news.resume }}</span></h1>
+		</div>
+	</a>
+</div>

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'forms/form_errors.html.twig' %}
+{% form_theme form 'forms/file_widget.html.twig' %}
+
+{% block stylesheets %}
+	<link href="{{ asset('/css/newspaper.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/list.css') }}" type="text/css" rel="stylesheet" />
+	<link href="{{ asset('/css/my-news.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	
+	{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'grey-box mkp-form'}}) }}
+	
+		<h1 class="mkp-header">{% trans %}label.deleteNews{% endtrans %}</h1>
+		
+		<div class="alert alert-danger" role="alert">
+			{{ 'form.label.confirmDeleteNews' | trans({}) | raw }}
+		</div>
+	   
+		<div class="white-box">
+			{{ include('components/list-item-news.html.twig', { 'news': form.vars.value }) }}
+		</div>
+	   
+		<div class="form-group form-buttons">
+			{{ form_widget(form.delete, {'attr': {'class': 'red-button'}}) }}
+			<a href="javascript:history.back()" class="gray-button" style="float: right">{% trans %}label.back{% endtrans %}</a>
+		</div>
+		
+    {{ form_end(form) }}	
+	
+{% endblock %}
+
