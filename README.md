@@ -6,29 +6,46 @@ Over the recent years, we have already seem powerful changes in our society fuel
 
 **What is**
 
-The UbiOrb Project seeks to develop a platform that has as primary goal to allow ordinary people to create their own and independent news website. We believe the crowd (i.e., the power of every individual and the collectivity) if correctly guided, can be a key player in the fostering of a more plural and free press. We also aim at supporting inhabitants from smaller or sparsely populated regions to create and maintain their own local news media  
+The UbiOrb Project seeks to develop a platform that fosters citizen journalism and, therefore, a more plural, independent and free press. In order to achieve this objective, UbiOrb must first allow ordinary citizens to create their own news website and publish news the way they think it is meant to be.
 
-**What is**
+Once this first step done, other important functionalities must be added to the platform. For example, we plan to implement some type (yet to be defined) of ranking for news and news websites according to their credibility. It could be also interesting to allow anyone (even unregistered users) to submit articles to any news website. The website team would be in charge of accepting or not the article, occasionally editing it beforehand. Possible features such as these ones briefly presented here must be suggested, discussed and later implemented, if valuable, in order to achieve our goals.   
 
-Here is an example of a news website created with UbiOrb: http://brasil.ubiorb.com (warning, portuguese content)
+Another positive impact of the UbiOrb Project is supporting inhabitants from smaller or sparsely populated regions to easily create and maintain their own local news media.
+
+We believe the crowd (i.e., the power of every individual and the collectivity) if correctly guided, can play a key role in fostering a more plural, free and independent media. 
+
+**What is not**
+
+UbiOrb **is not** meant to be a regular CMS, although it must share many of its features. Keep in mind that we have different goals. Therefore, we expect to see distinct features on UbiOrb as it develops.
+
+**Some Current Features**
+- Create news website with its own subdomain
+
+- Publish news with image and/or youtube videos
+
+- Invite new contributos to a website to help publishing news
+
+- Invite new contributors to help administrating the news website
+
+- English and Portuguese translations
+
+Here is an example of a news website created with UbiOrb: http://brasil.ubiorb.com (notice, portuguese content).
 
 ![LOGO!](Images/brasil-sc.png)
 
+**Possible Directions**
+- Allow readers and anonymous users to propose news articles
+
+- Rate news and news website according to some credibility measure
+
+- Create a hub of popular news from different websites 
+
+- _Make us suggestions_!
+
 **Inspiration**
 
-The UbiOrb takes inspirations on various different concepts and ideas. Some related subjects are:
+The UbiOrb Project finds inspirations from various different concepts and ideas. Some related subjects are:
 [free press](https://en.wikipedia.org/wiki/Freedom_of_the_press), [citizen journalism](https://en.wikipedia.org/wiki/Citizen_journalism) and [independent media](https://en.wikipedia.org/wiki/Independent_media).
-
-**Features**
-- Creates news website with its own subdomain
-
-- Publish news with image and/or youtubes videos.
-
-- Invite new contributos to help publishing news
-
-- Invite new contributors do help administrating the news website
-
-- English and Portuguese translations
 
 **Technical Features**
 
@@ -61,7 +78,7 @@ composer install
 php app/console doctrine:schema:update --force
 ```
 
-6. Alter permissions on "UbiOrb/app/cache" "UbiOrb/app/log" and "UbiOrb/web/u" so that apache may have permission to create edit and delete files within them. We will use chmod -R 777 for this, but free to choose other method.
+6. Alter permissions on "UbiOrb/app/cache" "UbiOrb/app/log" and "UbiOrb/web/u" so that apache may have permission to create edit and delete files within them. We will use chmod -R 777 for this, but feel free to choose other method.
 ```
 sudo chmod -R 777 app/cache app/logs web/u
 ```
@@ -101,8 +118,8 @@ sudo chmod -R 777 app/cache app/logs web/u
 http://ubiorb.com.local
 ```
 
-PS: To test the creation of a News Website, login on http://ubiorb.com.local, access the option to create a Newspaper and use ___mywebsite___ as domain. 
+PS: To test the creation of a News Website, login on http://ubiorb.com.local, access the option to create a Newspaper and use _mywebsite_ as domain. 
 
 **Contributing**
 
-We support and encourage contributions. Anyone interested in participating in this UbiOrb project is more than welcome.
+We do support and encourage contributions. Anyone interested in participating in this UbiOrb project is more than welcome.
