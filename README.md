@@ -40,7 +40,7 @@ Here is an example of a news website created with UbiOrb: http://brasil.ubiorb.c
 
 - Create a hub of popular news from different websites 
 
-- _Make a suggestions_!
+- _Make a suggestion_!
 
 **Inspiration**
 
